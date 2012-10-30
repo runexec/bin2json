@@ -1,4 +1,3 @@
-````clojure
 (ns bin2json.core
   (:require [cheshire.core :as JSON])
   (:use [clojure.java.shell :only [sh]]))
@@ -22,4 +21,5 @@
   (JSON/generate-string
    (hash-map :_cmd (str program " " args)
              :_data (sh program args)))))
-````
+
+                
