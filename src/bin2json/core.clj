@@ -13,13 +13,13 @@
 (defn bin2json
   [program & args]
   (let
-      [args (str
-             (reduce
-              #(clojure.string/join " " %&)
-              args))]
+      [args (reduce
+             #(clojure.string/join " " %&)
+             args)]
 
   (JSON/generate-string
    (hash-map :_cmd (str program " " args)
-             :_data (sh program args)))))
+             :_data (sh program args))
+   {:escape-non-ascii true})))
 
                 
